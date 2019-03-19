@@ -1,21 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
+import { HomeComponent } from "./login/login.component";
+import { StudentComponent } from "./students/students.component";
+import { ContactComponent } from "./contact/contact.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: 'recipes', pathMatch: 'full' },
-  {
-    path: 'recipes',
-    children: [
-      {
-        path: '',
-        loadChildren: './recipes/recipes.module#RecipesPageModule'
-      },
-      {
-        path: ':recipeId',
-        loadChildren: './recipes/recipe-detail/recipe-detail.module#RecipeDetailPageModule'
-      }
-    ]
-  }
+  { path: "", component: HomeComponent },
+  { path: "student", component: StudentComponent },
+  { path: "contact", component: ContactComponent }
 ];
 
 @NgModule({

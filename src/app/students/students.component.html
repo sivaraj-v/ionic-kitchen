@@ -1,0 +1,41 @@
+<ion-app>
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-buttons slot="start">
+          <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>Student - IT Department</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+     
+
+      <ion-grid>
+          <ion-button *ngIf="!isLoaded" expand="full" (click)="clickToLoadStudents()" color="primary">Load Students</ion-button>
+        <ion-row>
+          <ion-col *ngIf="users">
+        
+            <ion-item *ngFor="let user of users.data">
+              <ion-checkbox color="primary" slot="start"></ion-checkbox>
+              <ion-avatar slot="start">
+                  <img [src]="user.avatar">
+                </ion-avatar>
+              <ion-label>
+                  {{ user.first_name }} {{ user.last_name }}
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          
+        </ion-row>
+        <ion-row *ngIf="isLoaded">
+            <ion-col>
+                <ion-button expand="full" (click)="save()" color="primary">Save</ion-button>
+            </ion-col>
+            <ion-col>
+                <ion-button expand="full" (click)="goBack()" color="danger">Back</ion-button>
+            </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+  </ion-app>

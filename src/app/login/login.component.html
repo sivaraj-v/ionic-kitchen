@@ -1,0 +1,61 @@
+<!-- <h1 [ngClass]="{
+  'red': red,
+  'large': large
+}">Home</h1> -->
+
+<!-- <h1>Home</h1>
+<ul *ngIf="users">
+  <li *ngFor="let user of users.data">
+    <img [src]="user.avatar" />
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+  </li>
+</ul>
+<button (click)="firstClick()">Click me</button> -->
+
+<ion-app>
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="start">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+      <ion-title class="ion-text-center">Login</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <ion-grid>
+        <ion-row>
+            
+          <ion-col>
+            <form [formGroup]="messageForm">
+            <ion-item>
+              <ion-label position="floating">Username</ion-label>
+              <ion-input formControlName="name" type="text" id="username"></ion-input>
+              <div *ngIf="submitted && messageForm.controls.name.errors" class="error">
+                  <div *ngIf="messageForm.controls.name.errors.required">Your name is required</div>
+                </div>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input formControlName="message" type="password" id="password"></ion-input>
+              <div *ngIf="submitted && messageForm.controls.message.errors" class="error">
+                  <div *ngIf="messageForm.controls.message.errors.required">A message is required</div>
+                </div>
+            </ion-item>
+            <ion-button id="btn-clear" class="ion-padding-start" color="danger" fill="outline">
+              <ion-icon slot="start" name="information-circle"></ion-icon>
+              Forget Passwrod
+            </ion-button>
+            <ion-button id="btn-add" (click)="onClickMe()" class="ion-margin-vertical" color="primary">
+              <ion-icon slot="start" name="contact"></ion-icon>
+              Login
+            </ion-button>
+            <ion-button id="btn-add" (click)="admin()" class="ion-margin-vertical" color="primary">
+                <ion-icon slot="start" name="contacts"></ion-icon>
+                Admin View
+              </ion-button>
+          </form>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-content>
+</ion-app>
